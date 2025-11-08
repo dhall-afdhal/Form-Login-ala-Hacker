@@ -1,0 +1,221 @@
+/* 🧠 Modern Hacker Login Style by Afdhal */
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Quicksand:wght@400;600&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* 🌌 Background body */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #0f0;
+  background: #000 url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+/* 🧩 Matrix grid animation */
+section {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(0, 255, 0, 0.15), transparent);
+  animation: animate 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Grid glowing cells */
+section span {
+  position: relative;
+  display: block;
+  width: calc(6.25vw - 2px);
+  height: calc(6.25vw - 2px);
+  background: rgba(10, 10, 10, 0.8);
+  z-index: 1;
+  transition: 0.5s ease;
+  border: 1px solid rgba(0, 255, 0, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+section span:hover {
+  background: rgba(0, 255, 0, 0.9);
+  box-shadow: 0 0 10px #0f0, 0 0 40px #0f0;
+  transition: 0s;
+}
+
+/* 🧬 Sign-in card */
+.signin {
+  position: absolute;
+  width: 400px;
+  background: rgba(10, 20, 10, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.signin .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  text-align: center;
+}
+
+.signin .content h2 {
+  font-size: 2.2em;
+  color: #0f0;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #0f0;
+  text-transform: uppercase;
+}
+
+/* 🧩 Input form */
+.signin .content .form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.signin .content .form .inputBox {
+  position: relative;
+  width: 100%;
+}
+
+.signin .content .form .inputBox input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 255, 0, 0.4);
+  outline: none;
+  padding: 20px 10px 10px;
+  border-radius: 6px;
+  color: #0f0;
+  font-size: 1em;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+}
+
+.signin .content .form .inputBox input:focus {
+  box-shadow: 0 0 10px #0f0;
+  background: rgba(0, 30, 0, 0.8);
+}
+
+.signin .content .form .inputBox i {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  font-style: normal;
+  color: #0f0;
+  opacity: 0.6;
+  font-size: 0.85em;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i {
+  transform: translateY(-15px);
+  font-size: 0.75em;
+  opacity: 1;
+}
+
+/* 🔗 Links */
+.signin .content .form .links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+
+.signin .content .form .links a {
+  color: #0f0;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.signin .content .form .links a:hover {
+  text-shadow: 0 0 10px #0f0;
+}
+
+/* 🚪 Submit Button */
+.signin .content .form .inputBox input[type="submit"] {
+  padding: 12px;
+  background: #0f0;
+  color: #000;
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 20px #0f0, 0 0 40px #0f0;
+  background: #aaffaa;
+}
+
+input[type="submit"]:active {
+  opacity: 0.6;
+}
+
+/* 📱 Responsive grid */
+@media (max-width: 900px) {
+  section span {
+    width: calc(10vw - 2px);
+    height: calc(10vw - 2px);
+  }
+}
+
+@media (max-width: 600px) {
+  section span {
+    width: calc(20vw - 2px);
+    height: calc(20vw - 2px);
+  }
+
+  .signin {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .signin .content h2 {
+    font-size: 1.8em;
+  }
+}
